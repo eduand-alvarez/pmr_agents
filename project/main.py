@@ -7,6 +7,7 @@ import asyncio
 from datetime import datetime
 from typing import Iterator, List, Optional, Dict
 from pathlib import Path
+from dotenv import load_dotenv
 
 import pandas as pd
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect, Request
@@ -31,7 +32,8 @@ audit_logs = []
 total_cost = 0
 
 # Set the OpenAI API key
-os.environ["OPENAI_API_KEY"] = "sk-proj-MkBdELHGGT8ArR3xxXKtT3BlbkFJWhsUaJCQ0fER7fvR9doP"
+load_dotenv()
+os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
 
 # Initialize FastAPI app
 app = FastAPI()
