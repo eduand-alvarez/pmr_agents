@@ -31,7 +31,7 @@ audit_logs = []
 total_cost = 0
 
 # Set the OpenAI API key
-os.environ["OPENAI_API_KEY"] = "sk-proj-MkBdELHGGT8ArR3xxXKtT3BlbkFJWhsUaJCQ0fER7fvR9doP"
+os.environ["OPENAI_API_KEY"] = ""
 
 # Initialize FastAPI app
 app = FastAPI()
