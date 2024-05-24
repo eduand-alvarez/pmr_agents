@@ -208,7 +208,7 @@ async def generate_sensor_data(arm_id: int) -> None:
             joint_torque=random.uniform(-1, 1)
         ).dict()
         sensor_data_store[arm_id] = data
-        await asyncio.sleep(1)
+        await asyncio.sleep(5)
 
 @app.on_event("startup")
 async def startup_event():

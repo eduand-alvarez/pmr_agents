@@ -12,7 +12,12 @@
     <div class="container">
         <div class="header">
             <div class="header-left">
-                <!-- Left-aligned content (if any) goes here -->
+                <div class="dropdown-container">
+                    <select id="robotic-arm-select">
+                        <option value="1">Robotic Arm 1</option>
+                        <option value="2">Robotic Arm 2</option>
+                    </select>
+                </div>
             </div>
             <div class="header-right">
                 <div class="notification-container">
@@ -25,23 +30,6 @@
         </div>
         <div class="content">
             <div class="left-section">
-                <div class="dropdown-container">
-                    <select id="robotic-arm-select">
-                        <option value="1">Robotic Arm 1</option>
-                        <option value="2">Robotic Arm 2</option>
-                    </select>
-                </div>
-                <div class="chart-container">
-                    <div class="chart-box">
-                        <canvas id="angleChart"></canvas>
-                    </div>
-                    <div class="chart-box">
-                        <canvas id="velocityChart"></canvas>
-                    </div>
-                    <div class="chart-box">
-                        <canvas id="torqueChart"></canvas>
-                    </div>
-                </div>
                 <div class="counters-container">
                     <div class="counter-box">
                         <h3>Maintenance Flagged</h3>
@@ -54,6 +42,17 @@
                     <div class="counter-box">
                         <h3>Total Cost</h3>
                         <p id="total-cost">$0</p>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <div class="chart-box">
+                        <canvas id="angleChart"></canvas>
+                    </div>
+                    <div class="chart-box">
+                        <canvas id="velocityChart"></canvas>
+                    </div>
+                    <div class="chart-box">
+                        <canvas id="torqueChart"></canvas>
                     </div>
                 </div>
             </div>

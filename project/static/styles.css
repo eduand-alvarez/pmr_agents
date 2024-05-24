@@ -20,14 +20,15 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    background-color: #db85b0;
+    background-color: #abd6e0;
     color: white;
     padding: 10px;
     z-index: 500;
 }
 
 .header-left {
-    flex: 1;
+    display: flex;
+    align-items: center;
 }
 
 .header-right {
@@ -40,14 +41,14 @@ body {
     border-radius: 10px;
     border: 1px solid #ddd;
     width: 200px;
+    margin-top:10px;
     margin-bottom: 20px; /* Add some spacing below the dropdown */
 }
 
 .dropdown-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
+    margin-right: 20px;
 }
+
 
 .open-btn {
     font-size: 30px;
@@ -76,7 +77,6 @@ body {
     margin-right: 20px;
     margin-left: 20px;
 }
-
 .right-section {
     flex: 1;
     margin-right: 20px;
@@ -98,7 +98,7 @@ h1 {
 
 .chart-box {
     background: #fff;
-    padding: 20px;
+    padding: 10px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
@@ -106,18 +106,17 @@ h1 {
 .counters-container {
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
+    margin-bottom: 20px; /* Adjusted margin to create space between counters and charts */
 }
 
 .counter-box {
     flex: 1;
-    background: #fff;
+    background: #fff2d4;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
     text-align: center;
     margin: 0 10px; /* Space between the boxes */
-    margin-bottom: 30px;
 }
 
 .counter-box h3 {
@@ -136,7 +135,7 @@ canvas {
 }
 
 .chat-box-container {
-    background: #fff;
+    background: #ffe0fc;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
     padding: 20px;
@@ -170,7 +169,7 @@ canvas {
 }
 
 .system-message {
-    background-color: #e6a68d;
+    background-color: #ffdbdb;
     align-self: flex-end;
 }
 
@@ -244,6 +243,10 @@ canvas {
     padding: 10px;
     border-bottom: 1px solid #ddd;
     color: #333; /* Change this to the desired text color */
+}
+
+.notification-item:last-child {
+    border-bottom: none;
 }
 
 .popup-container {

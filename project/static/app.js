@@ -35,11 +35,12 @@ document.addEventListener('DOMContentLoaded', () => {
         popupContainer.style.display = 'flex';
     };
 
+    
     notificationBtn.addEventListener('click', () => {
         notificationDropdown.style.display = notificationDropdown.style.display === 'none' || notificationDropdown.style.display === '' ? 'block' : 'none';
     });
 
-    const createChart = (ctx, label, borderColor, backgroundColor, yAxisLabel) => {
+    const createChart = (ctx, label, borderColor, backgroundColor, yAxisLabel, chartTitle) => {
         return new Chart(ctx, {
             type: 'line',
             data: {
@@ -94,6 +95,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 },
                 plugins: {
+                    title: {
+                        display: true,
+                        text: chartTitle
+                    },
                     legend: {
                         display: false
                     },
@@ -109,9 +114,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    const angleChart = createChart(angleCtx, 'Joint Angle (degrees)', 'rgba(75, 192, 192, 1)', 'rgba(75, 192, 192, 0.2)', 'Angle (degrees)');
-    const velocityChart = createChart(velocityCtx, 'Joint Velocity (deg/s)', 'rgba(153, 102, 255, 1)', 'rgba(153, 102, 255, 0.2)', 'Velocity (deg/s)');
-    const torqueChart = createChart(torqueCtx, 'Joint Torque (Nm)', 'rgba(255, 159, 64, 1)', 'rgba(255, 159, 64, 0.2)', 'Torque (Nm)');
+    const angleChart = createChart(angleCtx, 'Joint Angle (degrees)', 'rgba(75, 192, 192, 1)', 'rgba(75, 192, 192, 0.2)', 'Angle (degrees)', 'Angle');
+    const velocityChart = createChart(velocityCtx, 'Joint Velocity (deg/s)', 'rgba(153, 102, 255, 1)', 'rgba(153, 102, 255, 0.2)', 'Velocity (deg/s)', 'Velocity');
+    const torqueChart = createChart(torqueCtx, 'Joint Torque (Nm)', 'rgba(255, 159, 64, 1)', 'rgba(255, 159, 64, 0.2)', 'Torque (Nm)', 'Torque');
 
     function connectWebSocket(armId) {
         if (ws) {
