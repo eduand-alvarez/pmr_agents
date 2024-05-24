@@ -1,0 +1,283 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: #db85b0;
+    color: white;
+    padding: 10px;
+    z-index: 500;
+}
+
+.header-left {
+    flex: 1;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+#robotic-arm-select {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    width: 200px;
+    margin-bottom: 20px; /* Add some spacing below the dropdown */
+}
+
+.dropdown-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.open-btn {
+    font-size: 30px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: white;
+}
+
+.content {
+    display: flex;
+    flex: 1;
+    margin-top: 20px;
+    transition: margin-left 0.3s;
+}
+
+.left-section, .right-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: calc(100vh - 70px); /* Adjusting for header height */
+}
+
+.left-section {
+    flex: 2;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.right-section {
+    flex: 1;
+    margin-right: 20px;
+    justify-content: space-between;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #f8f8f8;
+}
+
+.chart-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+}
+
+.chart-box {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.counters-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.counter-box {
+    flex: 1;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    margin: 0 10px; /* Space between the boxes */
+    margin-bottom: 30px;
+}
+
+.counter-box h3 {
+    margin: 0 0 10px 0;
+}
+
+canvas {
+    max-width: 100%;
+}
+
+.chat-header {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #585a5c; /* Text color for the chat header */
+}
+
+.chat-box-container {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    max-height: calc(100vh - 150px); /* Adjusting max height */
+}
+
+.chat-box {
+    flex: 1;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
+
+.chat-message {
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 20px;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+.user-message {
+    background-color: #d0e8ff;
+    align-self: flex-start;
+}
+
+.system-message {
+    background-color: #e6a68d;
+    align-self: flex-end;
+}
+
+.chat-input {
+    display: flex;
+    gap: 10px;
+}
+
+#chat-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+#send-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+#send-button:hover {
+    background: #0056b3;
+}
+
+.notification-container {
+    position: relative;
+    margin-right: 20px; /* Add margin to the right */
+}
+
+.notification-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+}
+
+.notification-dropdown {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    min-width: 200px; /* Ensure it has a minimum width */
+}
+
+.notification-dropdown p {
+    margin: 0;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    color: #333; /* Change this to the desired text color */
+}
+
+
+.notification-dropdown p:last-child {
+    border-bottom: none;
+}
+
+.notification-item {
+    margin: 0;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    color: #333; /* Change this to the desired text color */
+}
+
+.popup-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%; /* Adjust width for better readability */
+    max-width: 700px; /* Increase max-width */
+    max-height: 90%;  /* Increase max-height for more content space */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: auto;  /* Add scrollbar if content overflows */
+}
+
+.popup-close {
+    float: right;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#popup-details {
+    white-space: pre-wrap; /* Ensure text wraps inside the popup */
+    word-wrap: break-word; /* Break long words to ensure they wrap */
+    overflow: auto; /* Ensure the preformatted text scrolls */
+    max-height: 100%; /* Ensure the preformatted text uses all available height */
+}
