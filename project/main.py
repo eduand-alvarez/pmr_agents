@@ -4,8 +4,7 @@ import re
 import random
 import json
 import asyncio
-from datetime import datetime
-from typing import Iterator, List, Optional, Dict
+from typing import List, Optional, Dict
 from pathlib import Path
 from dotenv import load_dotenv
 

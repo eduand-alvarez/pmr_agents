@@ -6,12 +6,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const chatInput = document.getElementById('chat-input');
     const sendButton = document.getElementById('send-button');
     const armSelect = document.getElementById('robotic-arm-select');
+    const maintenanceSelect = document.getElementById('maintenance-select');
     const notificationDropdown = document.getElementById('notification-dropdown');
     const notificationBtn = document.getElementById('notification-btn');
 
     const maintenanceFlaggedCounter = document.getElementById('maintenance-flagged');
     const maintenanceRequestsCounter = document.getElementById('maintenance-requests');
     const totalCostCounter = document.getElementById('total-cost');
+    const progressBar = document.getElementById('progress-bar');
+    const progressBarContainer = document.getElementById('progress-bar-container');
 
     let maintenanceFlaggedCount = 0;
     let maintenanceRequestsCount = 0;
@@ -35,7 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
         popupContainer.style.display = 'flex';
     };
 
-    
     notificationBtn.addEventListener('click', () => {
         notificationDropdown.style.display = notificationDropdown.style.display === 'none' || notificationDropdown.style.display === '' ? 'block' : 'none';
     });
@@ -170,6 +172,10 @@ document.addEventListener('DOMContentLoaded', () => {
                             // Update total cost
                             totalCost = data.total_cost; // Update with actual cost
                             totalCostCounter.textContent = `$${totalCost.toFixed(2)}`;
+
+                            // Show animation
+                            showScheduleAnimation();
+
                         })
                         .catch(error => console.error('Error:', error));
                     });
@@ -203,6 +209,27 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         chart.update();
+    }
+
+    function showScheduleAnimation() {
+        const animation = document.createElement('div');
+        animation.className = 'schedule-animation';
+        animation.innerText = 'Scheduled!';
+        document.body.appendChild(animation);
+
+        setTimeout(() => {
+            animation.classList.add('fade-out');
+            animation.addEventListener('animationend', () => {
+                animation.remove();
+            });
+        }, 1000);
+    }
+
+    function addNotification(message) {
+        const notificationItem = document.createElement('div');
+        notificationItem.className = 'notification-item';
+        notificationItem.textContent = `${new Date().toLocaleString()}: ${message}`;
+        notificationDropdown.appendChild(notificationItem);
     }
 
     sendButton.addEventListener('click', () => {
@@ -257,13 +284,6 @@ document.addEventListener('DOMContentLoaded', () => {
         angleChart.update();
         velocityChart.update();
         torqueChart.update();
-    }
-
-    function addNotification(message) {
-        const notificationItem = document.createElement('div');
-        notificationItem.className = 'notification-item';
-        notificationItem.textContent = `${new Date().toLocaleString()}: ${message}`;
-        notificationDropdown.appendChild(notificationItem);
     }
 
     // Initial connection

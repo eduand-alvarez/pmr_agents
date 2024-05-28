@@ -36,19 +36,18 @@ body {
     align-items: center;
 }
 
-#robotic-arm-select {
+#robotic-arm-select, #maintenance-select {
     padding: 10px;
     border-radius: 10px;
     border: 1px solid #ddd;
     width: 200px;
-    margin-top:10px;
-    margin-bottom: 20px; /* Add some spacing below the dropdown */
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 .dropdown-container {
     margin-right: 20px;
 }
-
 
 .open-btn {
     font-size: 30px;
@@ -69,7 +68,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    height: calc(100vh - 70px); /* Adjusting for header height */
+    height: calc(100vh - 70px);
 }
 
 .left-section {
@@ -77,6 +76,7 @@ body {
     margin-right: 20px;
     margin-left: 20px;
 }
+
 .right-section {
     flex: 1;
     margin-right: 20px;
@@ -106,7 +106,7 @@ h1 {
 .counters-container {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 20px; /* Adjusted margin to create space between counters and charts */
+    margin-bottom: 20px;
 }
 
 .counter-box {
@@ -116,11 +116,15 @@ h1 {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
     text-align: center;
-    margin: 0 10px; /* Space between the boxes */
+    margin: 0 10px;
 }
 
 .counter-box h3 {
     margin: 0 0 10px 0;
+}
+
+.progress-box {
+    background: #e0e0e0;
 }
 
 canvas {
@@ -131,7 +135,7 @@ canvas {
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 10px;
-    color: #585a5c; /* Text color for the chat header */
+    color: #585a5c;
 }
 
 .chat-box-container {
@@ -142,7 +146,8 @@ canvas {
     display: flex;
     flex-direction: column;
     flex: 1;
-    max-height: calc(100vh - 150px); /* Adjusting max height */
+    margin-bottom: 60px;
+    max-height: calc(100vh - 150px);
 }
 
 .chat-box {
@@ -152,7 +157,7 @@ canvas {
     border-radius: 10px;
     padding: 10px;
     overflow-y: auto;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .chat-message {
@@ -200,7 +205,7 @@ canvas {
 
 .notification-container {
     position: relative;
-    margin-right: 20px; /* Add margin to the right */
+    margin-right: 20px;
 }
 
 .notification-btn {
@@ -223,16 +228,15 @@ canvas {
     max-height: 200px;
     overflow-y: auto;
     z-index: 1000;
-    min-width: 200px; /* Ensure it has a minimum width */
+    min-width: 200px;
 }
 
 .notification-dropdown p {
     margin: 0;
     padding: 10px;
     border-bottom: 1px solid #ddd;
-    color: #333; /* Change this to the desired text color */
+    color: #333;
 }
-
 
 .notification-dropdown p:last-child {
     border-bottom: none;
@@ -242,7 +246,7 @@ canvas {
     margin: 0;
     padding: 10px;
     border-bottom: 1px solid #ddd;
-    color: #333; /* Change this to the desired text color */
+    color: #333;
 }
 
 .notification-item:last-child {
@@ -265,11 +269,11 @@ canvas {
     background: #fff;
     padding: 20px;
     border-radius: 10px;
-    width: 90%; /* Adjust width for better readability */
-    max-width: 700px; /* Increase max-width */
-    max-height: 90%;  /* Increase max-height for more content space */
+    width: 90%;
+    max-width: 700px;
+    max-height: 90%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    overflow: auto;  /* Add scrollbar if content overflows */
+    overflow: auto;
 }
 
 .popup-close {
@@ -279,8 +283,26 @@ canvas {
 }
 
 #popup-details {
-    white-space: pre-wrap; /* Ensure text wraps inside the popup */
-    word-wrap: break-word; /* Break long words to ensure they wrap */
-    overflow: auto; /* Ensure the preformatted text scrolls */
-    max-height: 100%; /* Ensure the preformatted text uses all available height */
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow: auto;
+    max-height: 100%;
+}
+
+.schedule-animation {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 128, 0, 0.8);
+    color: white;
+    padding: 20px 40px;
+    border-radius: 10px;
+    font-size: 24px;
+    opacity: 1;
+    transition: opacity 1s ease-out;
+}
+
+.schedule-animation.fade-out {
+    opacity: 0;
 }
