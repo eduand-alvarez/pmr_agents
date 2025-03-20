@@ -25,6 +25,7 @@ from llama_index.embeddings.openai import OpenAIEmbedding
 from llama_index.llms.openai import OpenAI
 
 templates = Jinja2Templates(directory="templates")
+rate = 1
 
 # In-memory store for audit logs and total cost
 audit_logs = []
@@ -32,7 +33,7 @@ total_cost = 0
 
 # Set the OpenAI API key
 load_dotenv()
-os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
+os.environ["OPENAI_API_KEY"] = ""
 
 # Initialize FastAPI app
 app = FastAPI()
@@ -209,7 +210,7 @@ async def generate_sensor_data(arm_id: int) -> None:
             joint_torque=random.uniform(-1, 1)
         ).dict()
         sensor_data_store[arm_id] = data
-        await asyncio.sleep(5)
+        await asyncio.sleep(rate)
 
 @app.on_event("startup")
 async def startup_event():
